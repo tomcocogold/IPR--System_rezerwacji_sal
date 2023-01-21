@@ -15,6 +15,15 @@ public:
     explicit Panel_zglaszania_awarii(QWidget *parent = nullptr);
     ~Panel_zglaszania_awarii();
 
+signals:
+    void wroc();
+    void przejdz_do_okna_dialogowego();
+
+private slots:
+    void on_wroc_clicked();
+
+    void on_zglos_awarie_clicked();
+
 private:
     Ui::Panel_zglaszania_awarii *ui;
 };

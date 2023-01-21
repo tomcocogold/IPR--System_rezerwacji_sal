@@ -12,3 +12,15 @@ Panel_dostep_do_sali::~Panel_dostep_do_sali()
 {
     delete ui;
 }
+
+void Panel_dostep_do_sali::on_wroc_clicked()
+{
+    emit wroc();
+}
+
+
+void Panel_dostep_do_sali::on_zglos_prosbe_clicked()
+{
+    emit przejdz_do_okna_dialogowego();
+}
+

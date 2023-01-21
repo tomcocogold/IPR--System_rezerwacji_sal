@@ -12,3 +12,9 @@ Panel_wyswietlania_rezerwacji::~Panel_wyswietlania_rezerwacji()
 {
     delete ui;
 }
+
+void Panel_wyswietlania_rezerwacji::on_wroc_clicked()
+{
+    emit wroc();
+}
+

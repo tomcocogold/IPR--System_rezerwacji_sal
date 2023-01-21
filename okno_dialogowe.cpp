@@ -1,14 +1,28 @@
+#include "mainwindow.h"
 #include "okno_dialogowe.h"
 #include "ui_okno_dialogowe.h"
 
-okno_dialogowe::okno_dialogowe(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::okno_dialogowe)
+Okno_dialogowe::Okno_dialogowe(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::Okno_dialogowe)
 {
     ui->setupUi(this);
 }
 
-okno_dialogowe::~okno_dialogowe()
+
+Okno_dialogowe::~Okno_dialogowe()
 {
     delete ui;
 }
+
+void Okno_dialogowe::on_dialogButtonBox_rejected()
+{
+
+}
+
+
+void Okno_dialogowe::on_dialogButtonBox_accepted()
+{
+    emit powrot_z_okna_dialogowego();
+}
+

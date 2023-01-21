@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="wroc">
    <property name="geometry">
     <rect>
      <x>260</x>
@@ -29,7 +29,7 @@
     <string>Wróć</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="zglos_prosbe">
    <property name="geometry">
     <rect>
      <x>450</x>
@@ -45,7 +45,7 @@
     <string>Zgłoś prośbę</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="data_rozpoczecia_2">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -58,7 +58,7 @@
     <string>Data rozpoczęcia</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="data_zakonczenia_2">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -71,7 +71,7 @@
     <string>Data zakończenia</string>
    </property>
   </widget>
-  <widget class="QPlainTextEdit" name="plainTextEdit">
+  <widget class="QPlainTextEdit" name="krotki_opis_celu_2">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -81,17 +81,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>280</y>
-     <width>251</width>
-     <height>24</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="krotki_opis_celu">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -105,17 +95,7 @@
 skorzystania z sali</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox_2">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>320</y>
-     <width>251</width>
-     <height>24</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_4">
+  <widget class="QLabel" name="wybierz_rodzaj_sali">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -128,7 +108,7 @@ skorzystania z sali</string>
     <string>Wybierz rodzaj sali</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_5">
+  <widget class="QLabel" name="wybierz_numer_sali">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -141,7 +121,7 @@ skorzystania z sali</string>
     <string>Wybierz numer sali</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox_3">
+  <widget class="QComboBox" name="numer_sali">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -151,7 +131,7 @@ skorzystania z sali</string>
     </rect>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox_4">
+  <widget class="QComboBox" name="rodzaj_sali">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -161,7 +141,7 @@ skorzystania z sali</string>
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="label_6">
+  <widget class="QLabel" name="podaj_liczbe_uczestnikow">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -174,27 +154,7 @@ skorzystania z sali</string>
     <string>Podaj liczbę uczestników</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox_5">
-   <property name="geometry">
-    <rect>
-     <x>630</x>
-     <y>320</y>
-     <width>121</width>
-     <height>24</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="comboBox_6">
-   <property name="geometry">
-    <rect>
-     <x>630</x>
-     <y>280</y>
-     <width>121</width>
-     <height>24</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_7">
+  <widget class="QLabel" name="nazwa_panelu">
    <property name="geometry">
     <rect>
      <x>190</x>
@@ -212,10 +172,10 @@ skorzystania z sali</string>
     <string>Panel zgłaszania prośby o udostępnienie sali</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_8">
+  <widget class="QLabel" name="godzina_rozpoczecia">
    <property name="geometry">
     <rect>
-     <x>560</x>
+     <x>420</x>
      <y>280</y>
      <width>51</width>
      <height>16</height>
@@ -225,10 +185,10 @@ skorzystania z sali</string>
     <string>Godzina</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_9">
+  <widget class="QLabel" name="godzina_zakonczenia">
    <property name="geometry">
     <rect>
-     <x>560</x>
+     <x>420</x>
      <y>320</y>
      <width>51</width>
      <height>16</height>
@@ -238,13 +198,53 @@ skorzystania z sali</string>
     <string>Godzina</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="liczba_uczestnikow">
    <property name="geometry">
     <rect>
      <x>280</x>
      <y>240</y>
      <width>251</width>
      <height>24</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="data_rozpoczecia">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>280</y>
+     <width>110</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="data_zakonczenia">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>320</y>
+     <width>110</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTimeEdit" name="godzina_rozpoczecia_2">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>280</y>
+     <width>118</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTimeEdit" name="godzina_zakonczenia_2">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>320</y>
+     <width>118</width>
+     <height>25</height>
     </rect>
    </property>
   </widget>

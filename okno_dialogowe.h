@@ -1,22 +1,31 @@
 #ifndef OKNO_DIALOGOWE_H
 #define OKNO_DIALOGOWE_H
 
-#include <QWidget>
+#include <QDialog>
 
 namespace Ui {
-class okno_dialogowe;
+class Okno_dialogowe;
 }
 
-class okno_dialogowe : public QWidget
+class Okno_dialogowe : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit okno_dialogowe(QWidget *parent = nullptr);
-    ~okno_dialogowe();
+    explicit Okno_dialogowe(QWidget *parent = nullptr);
+    ~Okno_dialogowe();
+
+signals:
+    void wroc();
+    void powrot_z_okna_dialogowego();
+
+private slots:
+    void on_dialogButtonBox_rejected();
+
+    void on_dialogButtonBox_accepted();
 
 private:
-    Ui::okno_dialogowe *ui;
+    Ui::Okno_dialogowe *ui;
 };
 
 #endif // OKNO_DIALOGOWE_H

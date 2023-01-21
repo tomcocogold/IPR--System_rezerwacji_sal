@@ -15,6 +15,15 @@ public:
     explicit Panel_dostep_do_sali(QWidget *parent = nullptr);
     ~Panel_dostep_do_sali();
 
+signals:
+    void wroc();
+    void przejdz_do_okna_dialogowego();
+
+private slots:
+    void on_wroc_clicked();
+
+    void on_zglos_prosbe_clicked();
+
 private:
     Ui::Panel_dostep_do_sali *ui;
 };

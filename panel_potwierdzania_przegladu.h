@@ -15,6 +15,15 @@ public:
     explicit Panel_potwierdzania_przegladu(QWidget *parent = nullptr);
     ~Panel_potwierdzania_przegladu();
 
+signals:
+    void wroc();
+    void przejdz_do_okna_dialogowego();
+
+private slots:
+    void on_wroc_clicked();
+
+    void on_potwierdz_przeglad_clicked();
+
 private:
     Ui::Panel_potwierdzania_przegladu *ui;
 };

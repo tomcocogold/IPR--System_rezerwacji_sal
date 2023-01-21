@@ -12,3 +12,15 @@ Panel_zglaszania_awarii::~Panel_zglaszania_awarii()
 {
     delete ui;
 }
+
+void Panel_zglaszania_awarii::on_wroc_clicked()
+{
+    emit wroc();
+}
+
+
+void Panel_zglaszania_awarii::on_zglos_awarie_clicked()
+{
+    emit przejdz_do_okna_dialogowego();
+}
+

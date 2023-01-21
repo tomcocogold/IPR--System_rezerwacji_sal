@@ -1,14 +1,20 @@
-#include "okno_logowania.h"
-#include "ui_okno_logowania.h"
+#include "panel_logowania.h"
+#include "ui_panel_logowania.h"
 
-Okno_logowania::Okno_logowania(QWidget *parent) :
+Panel_logowania::Panel_logowania(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::Okno_logowania)
+    ui(new Ui::Panel_logowania)
 {
     ui->setupUi(this);
 }
 
-Okno_logowania::~Okno_logowania()
+Panel_logowania::~Panel_logowania()
 {
     delete ui;
 }
+
+void Panel_logowania::on_pushButton_clicked()
+{
+    emit zaloguj();
+}
+

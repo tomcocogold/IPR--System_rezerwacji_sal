@@ -6,37 +6,32 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    okno_dialogowe = new Okno_dialogowe;
 
     // Sloty i sygnaly dla wszystkich okien i zdarzen:
-    connect(&login_window, SIGNAL(login()), this, SLOT(login()));
-    connect(&login_window, SIGNAL(login_admin()), this, SLOT(login_admin()));
-    connect(&login_window, SIGNAL(registration()), this, SLOT(registration()));
-    connect(&login_window, SIGNAL(update_data()), &account_window, SLOT(update_data()));
-    connect(&login_window, SIGNAL(clear_lineEdits()), &account_window, SLOT(clear_lineEdits()));
+    connect(&panel_logowania, SIGNAL(zaloguj()), this, SLOT(zaloguj()));
 
-    connect(&register_window, SIGNAL(go_back()), this, SLOT(go_back()));
+    connect(&panel_potwierdzania_przegladu, SIGNAL(wroc()), this, SLOT(wroc()));
+    connect(&panel_potwierdzania_przegladu, SIGNAL(przejdz_do_okna_dialogowego()), this, SLOT(przejdz_do_okna_dialogowego()));
 
-    connect(&account_window, SIGNAL(go_back()), this, SLOT(go_back()));
-    connect(&account_window, SIGNAL(update_data_signal()), &account_window, SLOT(update_data()));
-    connect(&account_window, SIGNAL(add_advert()), this, SLOT(add_advert()));
-    connect(&account_window, SIGNAL(show_advert()), this, SLOT(show_advert()));
-    connect(&account_window, SIGNAL(show_advert()), &advert_window, SLOT(clear_advert_lineEdits()));
-    connect(&account_window, SIGNAL(show_advert()), &advert_window, SLOT(update_advert_data()));
-    connect(&account_window, SIGNAL(search_advert()), this, SLOT(search_advert()));
-    connect(&account_window, SIGNAL(update_search_advert_data_signal()), &search_window, SLOT(update_search_advert_data()));
-    connect(&account_window, SIGNAL(update_add_advert_window_data_signal()), &add_advert_window, SLOT(update_data()));
+    connect(&panel_technika, SIGNAL(wroc()), this, SLOT(wroc()));
+    connect(&panel_technika, SIGNAL(przejdz_do_okna_dialogowego()), this, SLOT(przejdz_do_okna_dialogowego()));
+    connect(&panel_technika, SIGNAL(przejdz_do_panelu_dostepu_do_sali()), this, SLOT(przejdz_do_panelu_dostepu_do_sali()));
+    connect(&panel_technika, SIGNAL(przejdz_do_panelu_potwierdzania_przegladu()), this, SLOT(przejdz_do_panelu_potwierdzania_przegladu()));
+    connect(&panel_technika, SIGNAL(przejdz_do_panelu_wyswietlania_rezerwacji()), this, SLOT(przejdz_do_panelu_wyswietlania_rezerwacji()));
+    connect(&panel_technika, SIGNAL(przejdz_do_panelu_zglaszania_awarii()), this, SLOT(przejdz_do_panelu_zglaszania_awarii()));
 
-    connect(&admin_window, SIGNAL(go_back()), this, SLOT(go_back()));
+    connect(&panel_dostep_do_sali, SIGNAL(wroc()), this, SLOT(wroc()));
+    connect(&panel_dostep_do_sali, SIGNAL(przejdz_do_okna_dialogowego()), this, SLOT(przejdz_do_okna_dialogowego()));
 
-    connect(&add_advert_window, SIGNAL(go_back()), this, SLOT(go_back()));
-    connect(&add_advert_window, SIGNAL(update_account_window_data()), &account_window, SLOT(update_data()));
+    connect(&panel_wyswietlania_rezerwacji, SIGNAL(wroc()), this, SLOT(wroc()));
 
-    connect(&advert_window, SIGNAL(go_back()), this, SLOT(go_back()));
-    connect(&advert_window, SIGNAL(go_back()), &account_window, SLOT(update_data()));
-    connect(&advert_window, SIGNAL(update_advert_data_signal()), &advert_window, SLOT(update_advert_data()));
+    connect(&panel_zglaszania_awarii, SIGNAL(wroc()), this, SLOT(wroc()));
+    connect(&panel_zglaszania_awarii, SIGNAL(przejdz_do_okna_dialogowego()), this, SLOT(przejdz_do_okna_dialogowego()));
 
-    connect(&search_window, SIGNAL(go_back()), this, SLOT(go_back()));
-    connect(&search_window, SIGNAL(update_account_window_data()), &account_window, SLOT(update_data()));
+    //connect(&okno_dialogowe, SIGNAL(wroc()), this, SLOT(wroc()));
+    connect(okno_dialogowe, SIGNAL(powrot_z_okna_dialogowego()), this, SLOT(powrot_z_okna_dialogowego()));
+
 
     // Zmiana okien:
     ui->controller->addWidget(&panel_logowania);                //  2
@@ -45,9 +40,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->controller->addWidget(&panel_potwierdzania_przegladu);  //  5
     ui->controller->addWidget(&panel_zglaszania_awarii);        //  6
     ui->controller->addWidget(&panel_wyswietlania_rezerwacji);  //  7
-    ui->controller->addWidget(&okno_dialogowe);                 //  8
+    //ui->controller->addWidget(&okno_dialogowe);                 //  8
 
-    // Ustawienie poczatkowej login_window jako strone startowa:
+    // Ustawienie poczatkowej logowanie_window jako strone startowa:
     ui->controller->setCurrentIndex(2);
     formerIndex.push_back(ui->controller->currentIndex());
     // formerIndex.removeLast();
@@ -65,9 +60,9 @@ MainWindow::MainWindow(QWidget *parent)
     mydb.setPassword("demopassword");
 
     if(!mydb.open())
-        qDebug()<<"Nie otwarto bazy danych";
+       qDebug()<<"Nie otwarto bazy danych";
     else
-        qDebug()<<"Otwarto baze danych";
+       qDebug()<<"Otwarto baze danych";
 
 }
 
@@ -76,44 +71,60 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::logowanie()
-{
-    formerIndex.push_back(ui->controller->currentIndex());
-    ui->controller->setCurrentIndex(4);
-}
-
-void MainWindow::login_admin()
-{
-    formerIndex.push_back(ui->controller->currentIndex());
-    ui->controller->setCurrentIndex(5);
-}
-
-void MainWindow::go_back()
-{
-    ui->controller->setCurrentIndex(formerIndex.takeLast());
-}
-
-void MainWindow::registration()
+void MainWindow::zaloguj()
 {
     formerIndex.push_back(ui->controller->currentIndex());
     ui->controller->setCurrentIndex(3);
 }
 
-void MainWindow::add_advert()
+void MainWindow::wroc()
+{
+    ui->controller->setCurrentIndex(formerIndex.takeLast());
+}
+
+void MainWindow::przejdz_do_okna_dialogowego()
+{
+    okno_dialogowe->show();
+}
+
+void MainWindow::powrot_z_okna_dialogowego()
+{
+    if(ui->controller->currentIndex()==5)
+    {
+        formerIndex.push_back(ui->controller->currentIndex());
+        ui->controller->setCurrentIndex(3);
+    }
+
+}
+
+void MainWindow::przejdz_do_panelu_potwierdzania_przegladu()
+{
+    formerIndex.push_back(ui->controller->currentIndex());
+    ui->controller->setCurrentIndex(5);
+}
+
+void MainWindow::przejdz_do_panelu_zglaszania_awarii()
 {
     formerIndex.push_back(ui->controller->currentIndex());
     ui->controller->setCurrentIndex(6);
 }
 
-void MainWindow::show_advert()
+void MainWindow::przejdz_do_panelu_wyswietlania_rezerwacji()
 {
     formerIndex.push_back(ui->controller->currentIndex());
     ui->controller->setCurrentIndex(7);
 }
 
-void MainWindow::search_advert()
+void MainWindow::przejdz_do_panelu_dostepu_do_sali()
 {
     formerIndex.push_back(ui->controller->currentIndex());
-    ui->controller->setCurrentIndex(8);
+    ui->controller->setCurrentIndex(4);
 }
+
+void MainWindow::przejdz_do_panelu_technika()
+{
+    formerIndex.push_back(ui->controller->currentIndex());
+    ui->controller->setCurrentIndex(3);
+}
+
 

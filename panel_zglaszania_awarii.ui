@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="zglos_awarie">
    <property name="geometry">
     <rect>
      <x>270</x>
@@ -29,7 +29,7 @@
     <string>Zgłoś awarię</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="wroc">
    <property name="geometry">
     <rect>
      <x>460</x>
@@ -45,7 +45,7 @@
     <string>Wróć</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_4">
+  <widget class="QLabel" name="nazwa_panelu">
    <property name="geometry">
     <rect>
      <x>310</x>
@@ -63,7 +63,7 @@
     <string>Panel zgłaszania awarii</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="wybierz_sale">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -76,7 +76,7 @@
     <string>Wybierz salę</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="wybierz_rodzaj_awarii">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -89,7 +89,7 @@
     <string>Wybierz rodzaj awarii</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="krotki_opis_awarii_2">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -102,7 +102,7 @@
     <string>Krótki opis awarii</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox">
+  <widget class="QComboBox" name="wybierz_sale_2">
    <property name="geometry">
     <rect>
      <x>300</x>
@@ -112,7 +112,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox_2">
+  <widget class="QComboBox" name="wybierz_rodzaj_awarii_2">
    <property name="geometry">
     <rect>
      <x>300</x>
@@ -122,7 +122,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPlainTextEdit" name="plainTextEdit">
+  <widget class="QPlainTextEdit" name="krotki_opis_awarii">
    <property name="geometry">
     <rect>
      <x>300</x>

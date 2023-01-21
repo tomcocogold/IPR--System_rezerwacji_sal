@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPlainTextEdit" name="plainTextEdit">
+  <widget class="QPlainTextEdit" name="sprawozdanie_tekst">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -23,7 +23,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="label_7">
+  <widget class="QLabel" name="nazwa_panelu">
    <property name="geometry">
     <rect>
      <x>170</x>
@@ -41,7 +41,7 @@
     <string>Panel potwierdzania przeglądu technicznego</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="wroc">
    <property name="geometry">
     <rect>
      <x>620</x>
@@ -57,7 +57,7 @@
     <string>Wróć</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="potwierdz_przeglad">
    <property name="geometry">
     <rect>
      <x>620</x>
@@ -70,11 +70,10 @@
     <string notr="true">background-color: rgb(0, 124, 163);</string>
    </property>
    <property name="text">
-    <string>Potwierdź wykonanie 
-przeglądu</string>
+    <string>Potwierdź</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="sprawozdanie">
    <property name="geometry">
     <rect>
      <x>40</x>

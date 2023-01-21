@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="potwierdz_naprawe_awarii">
    <property name="geometry">
     <rect>
      <x>660</x>
@@ -29,7 +29,7 @@
     <string>Potwierdź naprawę awarii</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="potwierdz_przeglad">
    <property name="geometry">
     <rect>
      <x>660</x>
@@ -46,7 +46,7 @@
 przeglądu</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="wyswietl_rezerwacje">
    <property name="geometry">
     <rect>
      <x>660</x>
@@ -59,10 +59,10 @@ przeglądu</string>
     <string notr="true">background-color: rgb(0, 124, 163);</string>
    </property>
    <property name="text">
-    <string>Poproś o dostęp do sali</string>
+    <string>Wyświetl rezerwacje</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="popros_o_dostep">
    <property name="geometry">
     <rect>
      <x>660</x>
@@ -78,7 +78,7 @@ przeglądu</string>
     <string>Poproś o dostęp do sali</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_5">
+  <widget class="QPushButton" name="zglos_awarie">
    <property name="geometry">
     <rect>
      <x>660</x>
@@ -94,7 +94,7 @@ przeglądu</string>
     <string>Zgłoś awarię</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_6">
+  <widget class="QPushButton" name="wyloguj">
    <property name="geometry">
     <rect>
      <x>660</x>
@@ -113,7 +113,7 @@ przeglądu</string>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>390</x>
+     <x>350</x>
      <y>10</y>
      <width>181</width>
      <height>41</height>
@@ -266,7 +266,7 @@ przeglądu</string>
     </widget>
    </widget>
   </widget>
-  <widget class="QPushButton" name="pushButton_7">
+  <widget class="QPushButton" name="szukaj_awarie_do_naprawy">
    <property name="geometry">
     <rect>
      <x>540</x>
@@ -302,7 +302,7 @@ przeglądu</string>
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_8">
+  <widget class="QPushButton" name="szukaj_przeglady_do_wykonania">
    <property name="geometry">
     <rect>
      <x>540</x>

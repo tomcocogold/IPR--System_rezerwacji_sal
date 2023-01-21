@@ -4,19 +4,25 @@
 #include <QWidget>
 
 namespace Ui {
-class Okno_logowania;
+class Panel_logowania;
 }
 
-class Okno_logowania : public QWidget
+class Panel_logowania : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit Okno_logowania(QWidget *parent = nullptr);
-    ~Okno_logowania();
+    explicit Panel_logowania(QWidget *parent = nullptr);
+    ~Panel_logowania();
+
+signals:
+    void zaloguj();
+
+private slots:
+    void on_pushButton_clicked();
 
 private:
-    Ui::Okno_logowania *ui;
+    Ui::Panel_logowania *ui;
 };
 
 #endif // PANEL_LOGOWANIA_H

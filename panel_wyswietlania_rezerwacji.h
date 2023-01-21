@@ -15,6 +15,12 @@ public:
     explicit Panel_wyswietlania_rezerwacji(QWidget *parent = nullptr);
     ~Panel_wyswietlania_rezerwacji();
 
+signals:
+    void wroc();
+
+private slots:
+    void on_wroc_clicked();
+
 private:
     Ui::Panel_wyswietlania_rezerwacji *ui;
 };
