@@ -54,10 +54,10 @@ MainWindow::MainWindow(QWidget *parent)
     // Polaczenie sie z baza danych:
     mydb = QSqlDatabase::addDatabase("QMYSQL");
     mydb.setHostName("localhost");
-    mydb.setDatabaseName("psbd");
+    mydb.setDatabaseName("ipr");
     mydb.setPort(3306);
-    mydb.setUserName("demouser");
-    mydb.setPassword("demopassword");
+    mydb.setUserName("root");
+    mydb.setPassword("");
 
     if(!mydb.open())
        qDebug()<<"Nie otwarto bazy danych";
