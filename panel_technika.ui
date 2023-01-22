@@ -162,7 +162,7 @@ przeglądu</string>
       <height>209</height>
      </rect>
     </property>
-    <widget class="QListWidget" name="listWidget">
+    <widget class="QTableView" name="tableView_awarie">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -208,7 +208,7 @@ przeglądu</string>
       <height>209</height>
      </rect>
     </property>
-    <widget class="QListWidget" name="listWidget_2">
+    <widget class="QTableView" name="tableView_przeglady">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -254,7 +254,7 @@ przeglądu</string>
       <height>129</height>
      </rect>
     </property>
-    <widget class="QListWidget" name="listWidget_3">
+    <widget class="QTableView" name="tableView_powiadomienia">
      <property name="geometry">
       <rect>
        <x>0</x>

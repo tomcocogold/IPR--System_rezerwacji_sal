@@ -1,5 +1,6 @@
 #include "panel_zglaszania_awarii.h"
 #include "ui_panel_zglaszania_awarii.h"
+#include "mainwindow.h"
 
 Panel_zglaszania_awarii::Panel_zglaszania_awarii(QWidget *parent) :
     QWidget(parent),

@@ -1,19 +1,41 @@
 #include "panel_technika.h"
 #include "ui_panel_technika.h"
+#include "mainwindow.h"
 
 Panel_technika::Panel_technika(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Panel_technika)
 {
     ui->setupUi(this);
+    //Wyświetlenie awarii do naprawy
+    QSqlQuery q1;
+    q1.prepare("SELECT * FROM ipr.awaria");
+    if(!q1.exec()){qDebug() << "Error: " << q1.lastError().text();};
+    QSqlQueryModel * m1 = new QSqlQueryModel();
+    m1->setQuery(q1);
+    ui->tableView_awarie->setModel(m1);
+    while(q1.next()){
+        //qInfo() << q.value(0).toString();
+    }
+    q1.clear();
+
+    //Wyświetlenie przeglądów technicznych do wykonania
+    QSqlQuery q2;
+    q2.prepare("SELECT * FROM ipr.przeglad");
+    if(!q2.exec()){qDebug() << "Error: " << q2.lastError().text();};
+    QSqlQueryModel * m2 = new QSqlQueryModel();
+    m2->setQuery(q2);
+    ui->tableView_przeglady->setModel(m2);
+    while(q2.next()){
+        //qInfo() << q.value(0).toString();
+    }
+    q2.clear();
 }
 
 Panel_technika::~Panel_technika()
 {
     delete ui;
 }
-
-
 
 
 void Panel_technika::on_potwierdz_przeglad_clicked()
