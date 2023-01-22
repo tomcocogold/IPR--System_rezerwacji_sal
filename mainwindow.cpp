@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Sloty i sygnaly dla wszystkich okien i zdarzen:
     connect(&panel_logowania, SIGNAL(zaloguj()), this, SLOT(zaloguj()));
+    connect(&panel_logowania, SIGNAL(wypelnij_panel_technika()), &panel_technika, SLOT(wypelnij_panel_technika()));
 
     connect(&panel_potwierdzania_przegladu, SIGNAL(wroc()), this, SLOT(wroc()));
     connect(&panel_potwierdzania_przegladu, SIGNAL(przejdz_do_okna_dialogowego()), this, SLOT(przejdz_do_okna_dialogowego()));
@@ -21,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&panel_technika, SIGNAL(przejdz_do_panelu_wyswietlania_rezerwacji()), this, SLOT(przejdz_do_panelu_wyswietlania_rezerwacji()));
     connect(&panel_technika, SIGNAL(przejdz_do_panelu_zglaszania_awarii()), this, SLOT(przejdz_do_panelu_zglaszania_awarii()));
 
+
     connect(&panel_dostep_do_sali, SIGNAL(wroc()), this, SLOT(wroc()));
     connect(&panel_dostep_do_sali, SIGNAL(przejdz_do_okna_dialogowego()), this, SLOT(przejdz_do_okna_dialogowego()));
 
@@ -31,7 +33,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     //connect(&okno_dialogowe, SIGNAL(wroc()), this, SLOT(wroc()));
     connect(okno_dialogowe, SIGNAL(powrot_z_okna_dialogowego()), this, SLOT(powrot_z_okna_dialogowego()));
-
+    connect(okno_dialogowe, SIGNAL(wypelnij_panel_technika()), &panel_technika, SLOT(wypelnij_panel_technika()));
 
     // Zmiana okien:
     ui->controller->addWidget(&panel_logowania);                //  2

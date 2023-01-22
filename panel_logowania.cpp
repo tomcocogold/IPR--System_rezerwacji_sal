@@ -31,6 +31,7 @@ void Panel_logowania::on_pushButton_clicked()
             //zaloguj_haslo = haslo;
             qInfo() << "Zalogowano: " << nazwa_uzytkownika << haslo;
             emit zaloguj();
+            emit wypelnij_panel_technika();
             ui->haslo_2->clear();
             ui->nazwa_uzytkownika_2->clear();
         }

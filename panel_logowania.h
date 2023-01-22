@@ -17,6 +17,7 @@ public:
 
 signals:
     void zaloguj();
+    void wypelnij_panel_technika();
 
 private slots:
     void on_pushButton_clicked();

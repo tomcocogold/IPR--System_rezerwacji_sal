@@ -25,6 +25,9 @@ extern QString zaloguj_nazwa_uzytkownika;
 extern QString zaloguj_haslo;
 extern QString zaloguj_id_uzytkownika;
 extern QString zaloguj_rodzaj_konta;
+extern QString id_awarii_do_naprawy;
+extern QString id_przegladu_do_naprawy;
+extern QString okno_dialogowe;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

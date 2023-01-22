@@ -38,6 +38,12 @@ private slots:
 
     void on_potwierdz_naprawe_awarii_clicked();
 
+    void wypelnij_panel_technika();
+
+    void on_tableView_awarie_clicked(const QModelIndex &index);
+
+    void on_tableView_przeglady_clicked(const QModelIndex &index);
+
 private:
     Ui::Panel_technika *ui;
 };
