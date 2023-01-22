@@ -10,10 +10,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Sloty i sygnaly dla wszystkich okien i zdarzen:
     connect(&panel_logowania, SIGNAL(zaloguj()), this, SLOT(zaloguj()));
-    connect(&panel_logowania, SIGNAL(wypelnij_panel_technika()), &panel_technika, SLOT(wypelnij_panel_technika()));
+    connect(&panel_logowania, SIGNAL(zaktualizuj_dane()), &panel_technika, SLOT(zaktualizuj_dane()));
 
     connect(&panel_potwierdzania_przegladu, SIGNAL(wroc()), this, SLOT(wroc()));
     connect(&panel_potwierdzania_przegladu, SIGNAL(przejdz_do_okna_dialogowego()), this, SLOT(przejdz_do_okna_dialogowego()));
+    connect(&panel_potwierdzania_przegladu, SIGNAL(zaktualizuj_dane()), &panel_technika, SLOT(zaktualizuj_dane()));
 
     connect(&panel_technika, SIGNAL(wroc()), this, SLOT(wroc()));
     connect(&panel_technika, SIGNAL(przejdz_do_okna_dialogowego()), this, SLOT(przejdz_do_okna_dialogowego()));
@@ -25,15 +26,18 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(&panel_dostep_do_sali, SIGNAL(wroc()), this, SLOT(wroc()));
     connect(&panel_dostep_do_sali, SIGNAL(przejdz_do_okna_dialogowego()), this, SLOT(przejdz_do_okna_dialogowego()));
+    connect(&panel_dostep_do_sali, SIGNAL(zaktualizuj_dane()), &panel_technika, SLOT(zaktualizuj_dane()));
 
     connect(&panel_wyswietlania_rezerwacji, SIGNAL(wroc()), this, SLOT(wroc()));
+    connect(&panel_wyswietlania_rezerwacji, SIGNAL(zaktualizuj_dane()), &panel_technika, SLOT(zaktualizuj_dane()));
 
     connect(&panel_zglaszania_awarii, SIGNAL(wroc()), this, SLOT(wroc()));
     connect(&panel_zglaszania_awarii, SIGNAL(przejdz_do_okna_dialogowego()), this, SLOT(przejdz_do_okna_dialogowego()));
+    connect(&panel_zglaszania_awarii, SIGNAL(zaktualizuj_dane()), &panel_technika, SLOT(zaktualizuj_dane()));
 
     //connect(&okno_dialogowe, SIGNAL(wroc()), this, SLOT(wroc()));
     connect(okno_dialogowe, SIGNAL(powrot_z_okna_dialogowego()), this, SLOT(powrot_z_okna_dialogowego()));
-    connect(okno_dialogowe, SIGNAL(wypelnij_panel_technika()), &panel_technika, SLOT(wypelnij_panel_technika()));
+    connect(okno_dialogowe, SIGNAL(zaktualizuj_dane()), &panel_technika, SLOT(zaktualizuj_dane()));
 
     // Zmiana okien:
     ui->controller->addWidget(&panel_logowania);                //  2

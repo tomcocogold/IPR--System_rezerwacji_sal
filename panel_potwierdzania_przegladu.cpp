@@ -16,6 +16,7 @@ Panel_potwierdzania_przegladu::~Panel_potwierdzania_przegladu()
 
 void Panel_potwierdzania_przegladu::on_wroc_clicked()
 {
+    emit zaktualizuj_dane();
     emit wroc();
 }
 

@@ -16,6 +16,7 @@ Panel_dostep_do_sali::~Panel_dostep_do_sali()
 
 void Panel_dostep_do_sali::on_wroc_clicked()
 {
+    emit zaktualizuj_dane();
     emit wroc();
 }
 

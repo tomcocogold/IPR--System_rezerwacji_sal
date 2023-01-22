@@ -16,6 +16,7 @@ Panel_zglaszania_awarii::~Panel_zglaszania_awarii()
 
 void Panel_zglaszania_awarii::on_wroc_clicked()
 {
+    emit zaktualizuj_dane();
     emit wroc();
 }
 

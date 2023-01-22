@@ -18,6 +18,7 @@ public:
 signals:
     void wroc();
     void przejdz_do_okna_dialogowego();
+    void zaktualizuj_dane();
 
 private slots:
     void on_wroc_clicked();

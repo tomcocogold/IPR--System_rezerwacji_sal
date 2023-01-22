@@ -17,6 +17,7 @@ public:
 
 signals:
     void wroc();
+    void zaktualizuj_dane();
 
 private slots:
     void on_wroc_clicked();

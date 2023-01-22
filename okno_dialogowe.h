@@ -18,7 +18,7 @@ public:
 signals:
     void wroc();
     void powrot_z_okna_dialogowego();
-    void wypelnij_panel_technika();
+    void zaktualizuj_dane();
 
 private slots:
     void on_dialogButtonBox_rejected();

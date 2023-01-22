@@ -50,13 +50,13 @@ void Panel_technika::on_wyloguj_clicked()
 }
 
 
-void Panel_technika::wypelnij_panel_technika()
+void Panel_technika::zaktualizuj_dane()
 {
     ui->potwierdz_naprawe_awarii->setDisabled(true);//dopóki nie zaznaczymy jakiejś awarii to nie da się wcisnąć przycisku
     ui->potwierdz_przeglad->setDisabled(true);//to samo robimy z przyciskiem od przegladów
     //Wyświetlenie awarii do naprawy
     QSqlQuery q1;
-    q1.prepare("SELECT * FROM awaria");
+    q1.prepare("SELECT id_awarii,numer_sali,rodzaj_awarii,opis_awarii,stan_awarii FROM awaria WHERE stan_awarii='do naprawy'");
     if(!q1.exec()){qDebug() << "Error: " << q1.lastError().text();};
     QSqlQueryModel * m1 = new QSqlQueryModel();
     m1->setQuery(q1);
@@ -68,7 +68,7 @@ void Panel_technika::wypelnij_panel_technika()
 
     //Wyświetlenie przeglądów technicznych do wykonania
     QSqlQuery q2;
-    q2.prepare("SELECT * FROM ipr.przeglad");
+    q2.prepare("SELECT id_przegladu,numer_sali,stan_przegladu FROM przeglad WHERE stan_przegladu = 'do wykonania'");
     if(!q2.exec()){qDebug() << "Error: " << q2.lastError().text();};
     QSqlQueryModel * m2 = new QSqlQueryModel();
     m2->setQuery(q2);
