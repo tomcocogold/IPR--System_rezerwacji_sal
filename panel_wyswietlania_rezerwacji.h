@@ -17,6 +17,7 @@ public:
 
 signals:
     void wroc();
+    void zaktualizuj_panel_technika();
 
 private slots:
     void on_wroc_clicked();

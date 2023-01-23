@@ -21,12 +21,10 @@
 #include <panel_wyswietlania_rezerwacji.h>
 
 // Zmienne globalne
-//extern QString logged_email;
-//extern QString logged_password;
-//extern QString logged_id;
-//extern QString logged_account_type;
-//extern QString selected_advert_id;
-//extern QString selected_raport;
+extern QString id_uzytkownika_zalogowanego;
+extern QString id_awarii_do_naprawy;
+extern QString id_przegladu_do_naprawy;
+extern QString okno_dialogowe;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

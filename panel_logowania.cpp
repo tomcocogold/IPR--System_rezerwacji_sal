@@ -1,5 +1,8 @@
 #include "panel_logowania.h"
 #include "ui_panel_logowania.h"
+#include "mainwindow.h"
+
+QString id_uzytkownika_zalogowanego;
 
 Panel_logowania::Panel_logowania(QWidget *parent) :
     QWidget(parent),
@@ -15,6 +18,26 @@ Panel_logowania::~Panel_logowania()
 
 void Panel_logowania::on_pushButton_clicked()
 {
-    emit zaloguj();
+    // ### Pobranie wpisanego loginu i hasla i sprawdzenie czy jest taki uzytkownik, w naszym przypadku tylko techników sprawdzamy
+    QString nazwa_uzytkownika = ui->haslo_2->text();
+    QString haslo = ui->nazwa_uzytkownika_2->text();
+
+    QSqlQuery q;
+    q.prepare("SELECT * FROM uzytkownik");
+    if(!q.exec()){qDebug() << "Error: " << q.lastError().text();};
+    while(q.next()){
+        if(q.value(3).toString() == nazwa_uzytkownika && q.value(4).toString() == haslo){
+            id_uzytkownika_zalogowanego = q.value(0).toString();
+            //zaloguj_nazwa_uzytkownika = nazwa_uzytkownika;
+            //zaloguj_haslo = haslo;
+            qInfo() << "Zalogowano: " << nazwa_uzytkownika << haslo;
+            emit zaloguj();
+            emit zaktualizuj_panel_technika();
+            ui->haslo_2->clear();
+            ui->nazwa_uzytkownika_2->clear();
+        }
+    }
+    q.clear();
+    // ###
 }
 

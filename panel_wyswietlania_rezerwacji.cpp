@@ -1,5 +1,6 @@
 #include "panel_wyswietlania_rezerwacji.h"
 #include "ui_panel_wyswietlania_rezerwacji.h"
+#include "mainwindow.h"
 
 Panel_wyswietlania_rezerwacji::Panel_wyswietlania_rezerwacji(QWidget *parent) :
     QWidget(parent),
@@ -15,6 +16,7 @@ Panel_wyswietlania_rezerwacji::~Panel_wyswietlania_rezerwacji()
 
 void Panel_wyswietlania_rezerwacji::on_wroc_clicked()
 {
+    emit zaktualizuj_panel_technika();
     emit wroc();
 }
 

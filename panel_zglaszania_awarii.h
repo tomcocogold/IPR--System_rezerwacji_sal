@@ -18,11 +18,17 @@ public:
 signals:
     void wroc();
     void przejdz_do_okna_dialogowego();
+    void zaktualizuj_panel_technika();
+
 
 private slots:
     void on_wroc_clicked();
 
     void on_zglos_awarie_clicked();
+
+    void wyslij_awarie_do_bazy_danych();
+
+    void zaktualizuj_panel_zglaszania_awarii();
 
 private:
     Ui::Panel_zglaszania_awarii *ui;
