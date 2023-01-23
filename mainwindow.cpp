@@ -10,11 +10,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Sloty i sygnaly dla wszystkich okien i zdarzen:
     connect(&panel_logowania, SIGNAL(zaloguj()), this, SLOT(zaloguj()));
-    connect(&panel_logowania, SIGNAL(zaktualizuj_dane()), &panel_technika, SLOT(zaktualizuj_dane()));
+    connect(&panel_logowania, SIGNAL(zaktualizuj_panel_technika()), &panel_technika, SLOT(zaktualizuj_panel_technika()));
 
     connect(&panel_potwierdzania_przegladu, SIGNAL(wroc()), this, SLOT(wroc()));
     connect(&panel_potwierdzania_przegladu, SIGNAL(przejdz_do_okna_dialogowego()), this, SLOT(przejdz_do_okna_dialogowego()));
-    connect(&panel_potwierdzania_przegladu, SIGNAL(zaktualizuj_dane()), &panel_technika, SLOT(zaktualizuj_dane()));
+    connect(&panel_potwierdzania_przegladu, SIGNAL(zaktualizuj_panel_technika()), &panel_technika, SLOT(zaktualizuj_panel_technika()));
 
     connect(&panel_technika, SIGNAL(wroc()), this, SLOT(wroc()));
     connect(&panel_technika, SIGNAL(przejdz_do_okna_dialogowego()), this, SLOT(przejdz_do_okna_dialogowego()));
@@ -22,22 +22,29 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&panel_technika, SIGNAL(przejdz_do_panelu_potwierdzania_przegladu()), this, SLOT(przejdz_do_panelu_potwierdzania_przegladu()));
     connect(&panel_technika, SIGNAL(przejdz_do_panelu_wyswietlania_rezerwacji()), this, SLOT(przejdz_do_panelu_wyswietlania_rezerwacji()));
     connect(&panel_technika, SIGNAL(przejdz_do_panelu_zglaszania_awarii()), this, SLOT(przejdz_do_panelu_zglaszania_awarii()));
-
+    connect(&panel_technika, SIGNAL(zaktualizuj_panel_zglaszania_awarii()), &panel_zglaszania_awarii, SLOT(zaktualizuj_panel_zglaszania_awarii()));
+    connect(&panel_technika, SIGNAL(zaktualizuj_panel_dostep_do_sali()), &panel_dostep_do_sali, SLOT(zaktualizuj_panel_dostep_do_sali()));
 
     connect(&panel_dostep_do_sali, SIGNAL(wroc()), this, SLOT(wroc()));
     connect(&panel_dostep_do_sali, SIGNAL(przejdz_do_okna_dialogowego()), this, SLOT(przejdz_do_okna_dialogowego()));
-    connect(&panel_dostep_do_sali, SIGNAL(zaktualizuj_dane()), &panel_technika, SLOT(zaktualizuj_dane()));
+    connect(&panel_dostep_do_sali, SIGNAL(zaktualizuj_panel_technika()), &panel_technika, SLOT(zaktualizuj_panel_technika()));
 
     connect(&panel_wyswietlania_rezerwacji, SIGNAL(wroc()), this, SLOT(wroc()));
-    connect(&panel_wyswietlania_rezerwacji, SIGNAL(zaktualizuj_dane()), &panel_technika, SLOT(zaktualizuj_dane()));
+    connect(&panel_wyswietlania_rezerwacji, SIGNAL(zaktualizuj_panel_technika()), &panel_technika, SLOT(zaktualizuj_panel_technika()));
 
     connect(&panel_zglaszania_awarii, SIGNAL(wroc()), this, SLOT(wroc()));
     connect(&panel_zglaszania_awarii, SIGNAL(przejdz_do_okna_dialogowego()), this, SLOT(przejdz_do_okna_dialogowego()));
-    connect(&panel_zglaszania_awarii, SIGNAL(zaktualizuj_dane()), &panel_technika, SLOT(zaktualizuj_dane()));
+    connect(&panel_zglaszania_awarii, SIGNAL(zaktualizuj_panel_technika()), &panel_technika, SLOT(zaktualizuj_panel_technika()));
 
     //connect(&okno_dialogowe, SIGNAL(wroc()), this, SLOT(wroc()));
     connect(okno_dialogowe, SIGNAL(powrot_z_okna_dialogowego()), this, SLOT(powrot_z_okna_dialogowego()));
-    connect(okno_dialogowe, SIGNAL(zaktualizuj_dane()), &panel_technika, SLOT(zaktualizuj_dane()));
+    connect(okno_dialogowe, SIGNAL(zaktualizuj_panel_technika()), &panel_technika, SLOT(zaktualizuj_panel_technika()));
+    connect(okno_dialogowe, SIGNAL(wyslij_awarie_do_bazy_danych()), &panel_zglaszania_awarii, SLOT(wyslij_awarie_do_bazy_danych()));
+    connect(okno_dialogowe, SIGNAL(zaktualizuj_panel_zglaszania_awarii()), &panel_zglaszania_awarii, SLOT(zaktualizuj_panel_zglaszania_awarii()));
+    connect(okno_dialogowe, SIGNAL(wyslij_przeglad_do_bazy_danych()), &panel_potwierdzania_przegladu, SLOT(wyslij_przeglad_do_bazy_danych()));
+    connect(okno_dialogowe, SIGNAL(zaktualizuj_panel_potwierdzania_przegladu()), &panel_potwierdzania_przegladu, SLOT(zaktualizuj_panel_potwierdzania_przegladu()));
+    connect(okno_dialogowe, SIGNAL(wyslij_prosbe_do_bazy_danych()), &panel_dostep_do_sali, SLOT(wyslij_prosbe_do_bazy_danych()));
+    connect(okno_dialogowe, SIGNAL(zaktualizuj_panel_dostep_do_sali()), &panel_dostep_do_sali, SLOT(zaktualizuj_panel_dostep_do_sali()));
 
     // Zmiana okien:
     ui->controller->addWidget(&panel_logowania);                //  2

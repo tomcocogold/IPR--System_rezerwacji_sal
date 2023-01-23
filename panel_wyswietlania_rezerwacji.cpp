@@ -16,7 +16,7 @@ Panel_wyswietlania_rezerwacji::~Panel_wyswietlania_rezerwacji()
 
 void Panel_wyswietlania_rezerwacji::on_wroc_clicked()
 {
-    emit zaktualizuj_dane();
+    emit zaktualizuj_panel_technika();
     emit wroc();
 }
 

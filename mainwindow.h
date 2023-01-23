@@ -21,10 +21,7 @@
 #include <panel_wyswietlania_rezerwacji.h>
 
 // Zmienne globalne
-extern QString zaloguj_nazwa_uzytkownika;
-extern QString zaloguj_haslo;
-extern QString zaloguj_id_uzytkownika;
-extern QString zaloguj_rodzaj_konta;
+extern QString id_uzytkownika_zalogowanego;
 extern QString id_awarii_do_naprawy;
 extern QString id_przegladu_do_naprawy;
 extern QString okno_dialogowe;

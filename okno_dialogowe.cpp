@@ -17,7 +17,30 @@ Okno_dialogowe::~Okno_dialogowe()
 
 void Okno_dialogowe::on_dialogButtonBox_rejected()
 {
-    emit zaktualizuj_dane();
+
+    if(okno_dialogowe == "awaria")//potwierdzanie naprawenia zaznaczonej naprawy
+    {
+        emit zaktualizuj_panel_technika();
+    }
+    else if(okno_dialogowe == "przeglad")//potwierdzanie wykonania przeglądu technicznego
+    {
+        emit wyslij_przeglad_do_bazy_danych();
+        emit zaktualizuj_panel_technika();
+        emit zaktualizuj_panel_potwierdzania_przegladu();
+    }
+    else if(okno_dialogowe == "prosba_o_dostep")//wysłanie prośby o dostęp do sali
+    {
+        emit wyslij_prosbe_do_bazy_danych();
+        emit zaktualizuj_panel_technika();
+        emit zaktualizuj_panel_dostep_do_sali();
+    }
+    else if(okno_dialogowe == "zglos_awarie")//zgłoszenie awarii
+    {
+        emit wyslij_awarie_do_bazy_danych();
+        emit zaktualizuj_panel_technika();
+        emit zaktualizuj_panel_zglaszania_awarii();
+    }
+
 }
 
 
@@ -31,23 +54,31 @@ void Okno_dialogowe::on_dialogButtonBox_accepted()
         if(!q.exec()){qDebug() << "Error: " << q.lastError().text();};
         q.clear();
 
-        emit zaktualizuj_dane();
+        q.prepare("INSERT INTO powiadomienie(uzytkownik_iduzytkownik,tekst) VALUES ('"+ id_uzytkownika_zalogowanego +"', 'Potwierdzenie naprawienia awarii przebiegło pomyślnie');");
+        if(!q.exec()){qDebug() << "Error: " << q.lastError().text();
+            return;};
+        q.clear();
+
+        emit zaktualizuj_panel_technika();
 
     }
     else if(okno_dialogowe == "przeglad")//potwierdzanie wykonania przeglądu technicznego
     {
-
-        emit zaktualizuj_dane();
+        emit wyslij_przeglad_do_bazy_danych();
+        emit zaktualizuj_panel_technika();
+        emit zaktualizuj_panel_potwierdzania_przegladu();
     }
     else if(okno_dialogowe == "prosba_o_dostep")//wysłanie prośby o dostęp do sali
     {
-
-        emit zaktualizuj_dane();
+        emit wyslij_prosbe_do_bazy_danych();
+        emit zaktualizuj_panel_technika();
+        emit zaktualizuj_panel_dostep_do_sali();
     }
     else if(okno_dialogowe == "zglos_awarie")//zgłoszenie awarii
     {
-
-        emit zaktualizuj_dane();
+        emit wyslij_awarie_do_bazy_danych();
+        emit zaktualizuj_panel_technika();
+        emit zaktualizuj_panel_zglaszania_awarii();
     }
 
     emit powrot_z_okna_dialogowego();

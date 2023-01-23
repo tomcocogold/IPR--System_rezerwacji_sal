@@ -18,7 +18,13 @@ public:
 signals:
     void wroc();
     void powrot_z_okna_dialogowego();
-    void zaktualizuj_dane();
+    void zaktualizuj_panel_technika();
+    void wyslij_awarie_do_bazy_danych();
+    void zaktualizuj_panel_zglaszania_awarii();
+    void zaktualizuj_panel_potwierdzania_przegladu();
+    void wyslij_przeglad_do_bazy_danych();
+    void zaktualizuj_panel_dostep_do_sali();
+    void wyslij_prosbe_do_bazy_danych();
 
 private slots:
     void on_dialogButtonBox_rejected();

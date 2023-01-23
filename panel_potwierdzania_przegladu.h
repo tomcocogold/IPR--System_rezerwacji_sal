@@ -18,12 +18,16 @@ public:
 signals:
     void wroc();
     void przejdz_do_okna_dialogowego();
-    void zaktualizuj_dane();
+    void zaktualizuj_panel_technika();
 
 private slots:
     void on_wroc_clicked();
 
     void on_potwierdz_przeglad_clicked();
+
+    void wyslij_przeglad_do_bazy_danych();
+
+    void zaktualizuj_panel_potwierdzania_przegladu();
 
 private:
     Ui::Panel_potwierdzania_przegladu *ui;
