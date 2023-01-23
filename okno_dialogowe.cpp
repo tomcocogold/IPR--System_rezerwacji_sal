@@ -24,19 +24,19 @@ void Okno_dialogowe::on_dialogButtonBox_rejected()
     }
     else if(okno_dialogowe == "przeglad")//potwierdzanie wykonania przeglądu technicznego
     {
-        emit wyslij_przeglad_do_bazy_danych();
+
         emit zaktualizuj_panel_technika();
         emit zaktualizuj_panel_potwierdzania_przegladu();
     }
     else if(okno_dialogowe == "prosba_o_dostep")//wysłanie prośby o dostęp do sali
     {
-        emit wyslij_prosbe_do_bazy_danych();
+
         emit zaktualizuj_panel_technika();
         emit zaktualizuj_panel_dostep_do_sali();
     }
     else if(okno_dialogowe == "zglos_awarie")//zgłoszenie awarii
     {
-        emit wyslij_awarie_do_bazy_danych();
+
         emit zaktualizuj_panel_technika();
         emit zaktualizuj_panel_zglaszania_awarii();
     }

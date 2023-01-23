@@ -24,6 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&panel_technika, SIGNAL(przejdz_do_panelu_zglaszania_awarii()), this, SLOT(przejdz_do_panelu_zglaszania_awarii()));
     connect(&panel_technika, SIGNAL(zaktualizuj_panel_zglaszania_awarii()), &panel_zglaszania_awarii, SLOT(zaktualizuj_panel_zglaszania_awarii()));
     connect(&panel_technika, SIGNAL(zaktualizuj_panel_dostep_do_sali()), &panel_dostep_do_sali, SLOT(zaktualizuj_panel_dostep_do_sali()));
+    connect(&panel_technika, SIGNAL(zaktualizuj_panel_wyswietlania_rezerwacji()), &panel_wyswietlania_rezerwacji, SLOT(zaktualizuj_panel_wyswietlania_rezerwacji()));
 
     connect(&panel_dostep_do_sali, SIGNAL(wroc()), this, SLOT(wroc()));
     connect(&panel_dostep_do_sali, SIGNAL(przejdz_do_okna_dialogowego()), this, SLOT(przejdz_do_okna_dialogowego()));

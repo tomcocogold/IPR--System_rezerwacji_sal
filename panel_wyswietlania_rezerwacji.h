@@ -21,6 +21,9 @@ signals:
 
 private slots:
     void on_wroc_clicked();
+    void zaktualizuj_panel_wyswietlania_rezerwacji();
+
+    void on_kalendarz_clicked(const QDate &date);
 
 private:
     Ui::Panel_wyswietlania_rezerwacji *ui;
