@@ -43,6 +43,11 @@ void Panel_technika::on_zglos_awarie_clicked()
 
 void Panel_technika::on_wyloguj_clicked()
 {
+    id_uzytkownika_zalogowanego = nullptr;
+    id_awarii_do_naprawy = nullptr;
+    id_przegladu_do_naprawy = nullptr;
+    okno_dialogowe = nullptr;
+
     emit wroc();
 }
 
