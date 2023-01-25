@@ -11,7 +11,6 @@ Panel_technika::Panel_technika(QWidget *parent) :
     ui(new Ui::Panel_technika)
 {
     ui->setupUi(this);
-
 }
 
 Panel_technika::~Panel_technika()
@@ -21,6 +20,7 @@ Panel_technika::~Panel_technika()
 
 void Panel_technika::on_wyswietl_rezerwacje_clicked()
 {
+    emit zaktualizuj_panel_wyswietlania_rezerwacji();
     emit przejdz_do_panelu_wyswietlania_rezerwacji();
 }
 
@@ -43,6 +43,11 @@ void Panel_technika::on_zglos_awarie_clicked()
 
 void Panel_technika::on_wyloguj_clicked()
 {
+    id_uzytkownika_zalogowanego = nullptr;
+    id_awarii_do_naprawy = nullptr;
+    id_przegladu_do_naprawy = nullptr;
+    okno_dialogowe = nullptr;
+
     emit wroc();
 }
 

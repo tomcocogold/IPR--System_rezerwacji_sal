@@ -80,5 +80,6 @@ void Panel_zglaszania_awarii::zaktualizuj_panel_zglaszania_awarii()
     ui->wybierz_rodzaj_awarii_2->addItem("kreda przestala pisac");
     ui->wybierz_rodzaj_awarii_2->addItem("student wie wiecej od profesora");
     ui->wybierz_rodzaj_awarii_2->addItem("wskaznik polimorficzny");
+    ui->wybierz_rodzaj_awarii_2->addItem("inne");
 
 }

@@ -24,6 +24,7 @@ signals:
     void przejdz_do_panelu_dostepu_do_sali();
     void zaktualizuj_panel_zglaszania_awarii();
     void zaktualizuj_panel_dostep_do_sali();
+    void zaktualizuj_panel_wyswietlania_rezerwacji();
 
 private slots:
 
