@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&panel_potwierdzania_przegladu, SIGNAL(przejdz_do_okna_dialogowego()), this, SLOT(przejdz_do_okna_dialogowego()));
     connect(&panel_potwierdzania_przegladu, SIGNAL(zaktualizuj_panel_technika()), &panel_technika, SLOT(zaktualizuj_panel_technika()));
 
-    connect(&panel_technika, SIGNAL(wroc()), this, SLOT(wroc()));
+    connect(&panel_technika, SIGNAL(wyloguj()), this, SLOT(wyloguj()));
     connect(&panel_technika, SIGNAL(przejdz_do_okna_dialogowego()), this, SLOT(przejdz_do_okna_dialogowego()));
     connect(&panel_technika, SIGNAL(przejdz_do_panelu_dostepu_do_sali()), this, SLOT(przejdz_do_panelu_dostepu_do_sali()));
     connect(&panel_technika, SIGNAL(przejdz_do_panelu_potwierdzania_przegladu()), this, SLOT(przejdz_do_panelu_potwierdzania_przegladu()));
@@ -139,6 +139,11 @@ void MainWindow::przejdz_do_panelu_technika()
 {
     formerIndex.push_back(ui->controller->currentIndex());
     ui->controller->setCurrentIndex(3);
+}
+void MainWindow::wyloguj()
+{
+    formerIndex.push_back(ui->controller->currentIndex());
+    ui->controller->setCurrentIndex(2);
 }
 
 

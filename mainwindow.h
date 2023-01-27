@@ -19,6 +19,15 @@
 #include <panel_potwierdzania_przegladu.h>
 #include <panel_zglaszania_awarii.h>
 #include <panel_wyswietlania_rezerwacji.h>
+#include <lista_awarii.h>
+#include <lista_prob.h>
+#include <lista_przegladow_technicznych.h>
+#include <lista_rezerwacji.h>
+#include <lista_sal.h>
+#include <lista_sprzetow.h>
+#include <lista_uzytkownikow.h>
+#include <lista_wynajmow.h>
+#include <lista_powiadomien.h>
 
 // Zmienne globalne
 extern QString id_uzytkownika_zalogowanego;
@@ -42,6 +51,7 @@ public:
 private slots:
     void zaloguj();
     void wroc();
+    void wyloguj();
     void przejdz_do_okna_dialogowego();
     void przejdz_do_panelu_potwierdzania_przegladu();
     void przejdz_do_panelu_zglaszania_awarii();

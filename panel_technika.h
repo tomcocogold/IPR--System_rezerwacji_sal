@@ -16,7 +16,7 @@ public:
     ~Panel_technika();
 
 signals:
-    void wroc();    //wyloguj
+    void wyloguj();    //wyloguj
     void przejdz_do_okna_dialogowego();
     void przejdz_do_panelu_potwierdzania_przegladu();
     void przejdz_do_panelu_zglaszania_awarii();

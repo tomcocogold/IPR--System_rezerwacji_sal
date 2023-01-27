@@ -48,7 +48,7 @@ void Panel_technika::on_wyloguj_clicked()
     id_przegladu_do_naprawy = nullptr;
     okno_dialogowe = nullptr;
 
-    emit wroc();
+    emit wyloguj();
 }
 
 
